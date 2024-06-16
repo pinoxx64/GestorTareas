@@ -1,0 +1,75 @@
+<p-toast></p-toast>
+    
+    <div class="card flex justify-content-center">
+        @if(tipo==0){
+    <p-button [raised]="true" [outlined]="true" (click)="showDialog()" [raised]="true" label="Editar" icon="pi pi-pencil"></p-button>
+        }
+    <p-dialog header="Editar tareas" [(visible)]="visible" [modal]="true" 
+    [draggable]="false" (onHide)="cerrar()" [resizable]="false" [style]="{ width: '50rem' }" 
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+
+
+    <div class="card flex justify-content-center" class="custom-dialog">
+        <div class="flex flex-row gap-4">
+
+            <div class="flex flex-column">
+                <label for="eventname4">Descripción</label><br>
+                <input pInputText id="descrip" aria-describedby="eventname-help4" [(ngModel)]="tareas.descripcion" />
+            </div>
+            
+            <br>
+
+            <div class="flex flex-column">
+                <label for="eventname4">dificultad</label><br>
+                <input pInputText id="dificultad" aria-describedby="eventname-help4" [(ngModel)]="tareas.dificultad" />
+            </div>
+            
+            <br>
+            
+            <div class="flex flex-column">
+                <label for="eventname4">horas estimadas</label><br>
+                <input pInputText id="horas_estimadas" aria-describedby="eventname-help4" [(ngModel)]="tareas.horas_estimadas" />
+            </div>
+            
+            <br>
+
+            <div class="flex flex-column">
+                <label for="eventname4">horas actuales</label><br>
+                <input pInputText id="horas_actuales" aria-describedby="eventname-help4" [(ngModel)]="tareas.horas_actuales" />
+            </div>
+            
+            <br>
+
+            <div class="flex flex-column">
+                <label for="eventname4">porcentaje</label><br>
+                <input pInputText id="porcentaje" aria-describedby="eventname-help4" [(ngModel)]="tareas.porcentaje" />
+            </div>
+            
+            <br>
+
+            <div class="flex flex-column">
+                <label for="eventname4">completo</label><br>
+                <input pInputText id="completo" aria-describedby="eventname-help4" [(ngModel)]="tareas.completo" />
+            </div>
+            
+            <br>
+
+            <div class="flex flex-column">
+                <label for="eventname4">id usuario</label><br>
+                <input pInputText id="id_usuario" aria-describedby="eventname-help4" [(ngModel)]="tareas.id_usuario" />
+            </div>
+            
+            <br>
+
+        </div>
+        </div>
+        <div style="margin-top: 20px;" >
+
+            <app-confirm tipo="Guardar" icono="plus" mensaje="¿Deseas guardar los cambios?" color="success" (confirmacion)="guardar($event)"></app-confirm>
+        </div>
+        <div style="margin-top: 20px;" >
+
+            <app-confirm tipo="Borrar" icono="pi pi-trash" mensaje="¿Deseas borrar este evento?" color="danger" (confirmacion)="eliminar($event)"></app-confirm>
+        </div>
+  </p-dialog>
+</div>
