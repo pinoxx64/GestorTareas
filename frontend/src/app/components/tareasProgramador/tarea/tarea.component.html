@@ -1,0 +1,43 @@
+<div style="margin-top: 40px;" class="card">
+    <p-table
+        [value]="listaTarea"
+        [paginator]="true"
+        [rows]="5"
+        [showCurrentPageReport]="true"
+        [tableStyle]="{ 'min-width': '50rem' ,'max-width':'80rem','margin':'auto'}"
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} tareas"
+        [rowsPerPageOptions]="[5, 10, 20]"
+    >
+    
+        <ng-template pTemplate="header">
+            <tr class="header-glass" style="border: none;">
+                <th style="width:10%">Editar las tareas</th>
+                <th style="width:12%">Descripción</th>
+                <th style="width:12%">Dificultad</th>
+                <th style="width:12%">Horas estimadas</th>
+                <th style="width:12%">Horas actuales</th>
+                <th style="width:12%">Porcentaje</th>
+                <th style="width:12%">Completo</th>
+                <th style="width:12%">Id usuario</th>
+            </tr>
+        </ng-template> 
+        <ng-template pTemplate="body" let-tareas>
+            <tr class="glass">
+                <td><app-editar-tarea [tarea]="listaTarea" [id]="tareas.id"></app-editar-tarea></td>
+                <td>{{tareas.descripcion}}</td>
+                <td>{{tareas.dificultad}}</td>
+                <td>{{tareas.horas_actuales}}</td>
+                <td>{{tareas.horas_estimadas}}</td>
+                <td>{{tareas.porcentaje}}</td>
+                <td>{{tareas.completo}}</td>
+                <td>{{tareas.id_usuario}}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-table>
+</div>
