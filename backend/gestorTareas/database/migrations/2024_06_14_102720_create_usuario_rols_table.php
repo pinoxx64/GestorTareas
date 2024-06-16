@@ -9,15 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up() 
+    public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('usuario_rols', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('correo')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('contrasena');
-            $table->rememberToken();
+            $table->foreignId('id_usuario')->nullable()->constrained('usuarios')->onDelete('set null');
+            $table->foreignId('id_rol')->nullable()->constrained('rols')->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('usuario_rols');
     }
 };

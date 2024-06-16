@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('tareas', function (Blueprint $table) {
             $table->id();
+            $table->string('descripcion');
+            $table->enum('dificultad', ['XS', 'S', 'M', 'L', 'XL']);
+            $table->integer('horas_estimadas');
+            $table->integer('horas_actuales')->nullable();
+            $table->integer('porcentaje')->default(0);
+            $table->boolean('completo')->default(false);
+            $table->foreignId('id_usuario')->nullable()->constrained('usuarios')->onDelete('set null');
             $table->timestamps();
         });
     }
