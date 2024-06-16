@@ -1,4 +1,3 @@
-//Arreglar al crearlo añadir la idUsuario, mi idea es crear otro model para las preferencias
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
@@ -7,13 +6,14 @@ import { SliderModule } from 'primeng/slider';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
 import { MessageService } from 'primeng/api';
-import { ConfirmComponent } from '../../confirm/confirm.component';
+import { ConfirmComponent } from '../confirm/confirm.component';
 
-import { Usuario } from '../../../interface/usuario';
-import { UsuarioService } from '../../../service/usuario.service';
+import { Usuario } from '../../interface/usuario';
+import { UsuarioService } from '../../service/usuario.service';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-crear-usuario',
+  selector: 'app-registro',
   standalone: true,
   imports: [
     ToastModule,
@@ -25,14 +25,14 @@ import { UsuarioService } from '../../../service/usuario.service';
     FormsModule,
     ConfirmComponent
   ],
-  templateUrl: './crear-usuario.component.html',
-  styleUrl: './crear-usuario.component.css',
+  templateUrl: './registro.component.html',
+  styleUrl: './registro.component.css',
   providers:[
     UsuarioService,
     MessageService
   ]
 })
-export class CrearUsuarioComponent {
+export class RegistroComponent implements OnInit{
   constructor(
     public messageService: MessageService,
     private servicioUsuario: UsuarioService
@@ -43,7 +43,6 @@ export class CrearUsuarioComponent {
     correo: '', 
     contrasena: ''
   }
-
 
   @Input() usuario?: any
   @Input() tipo=0
@@ -82,7 +81,7 @@ export class CrearUsuarioComponent {
               this.usuarios.nombre= ''
               this.usuarios.correo= ''
               this.usuarios.contrasena= ''
-              window.location.reload()
+              window.location.reload() 
             });
           },
           error: (error) => {

@@ -2,23 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Observable, catchError, of } from 'rxjs';
-import { Usuario } from '../interface/usuario';
+import { Tarea } from '../interface/tarea';
 
 @Injectable({
     providedIn: 'root'
   })
-export class UsuarioService{
-    baseUrl = environment.baseUrl+environment.urlUsuario
+export class tareaService{
+    baseUrl = environment.baseUrl+environment.urlTarea
     constructor(private http:HttpClient){}
 
-    usuariosGet(): Observable<any  | undefined> {
+    tareasGet(): Observable<any  | undefined> {
         return this.http.get<any>(this.baseUrl).pipe(
           catchError((error) =>{
             return of(undefined)
           })
         )
       }
-      usuarioGet(id:number): Observable<any | undefined> {
+      tareaGet(id:number): Observable<any | undefined> {
     
         return this.http.get<any>(this.baseUrl+'/'+id).pipe(
           catchError((error) =>{
@@ -26,14 +26,14 @@ export class UsuarioService{
           })
         )
       }
-      usuariosPost(usuarios:Usuario): Observable<any | undefined> {
-        let body={usuarios:usuarios}
+      tareasPost(tareas:Tarea): Observable<any | undefined> {
+        let body={tareas:tareas}
         
-         return this.http.post<any>(this.baseUrl,usuarios).pipe(
+         return this.http.post<any>(this.baseUrl,tareas).pipe(
          
          )
        }
-      usuariosDelete(id:number): Observable<any | undefined> {
+      tareasDelete(id:number): Observable<any | undefined> {
     
         return this.http.delete<any>(this.baseUrl+'/'+id).pipe(
           catchError((error) =>{
@@ -41,9 +41,9 @@ export class UsuarioService{
           })
         )
       }
-      usuariosPut(usuarios:Usuario, id:number): Observable<any | undefined> {
-        let body={usuario: usuarios}
-        return this.http.put<any>(this.baseUrl+'/'+id,usuarios,{params: {auth: true}}).pipe(
+      tareasPut(tareas:Tarea, id:number): Observable<any | undefined> {
+        let body={tarea: tareas}
+        return this.http.put<any>(this.baseUrl+'/'+id,tareas,{params: {auth: true}}).pipe(
     
         )
        }

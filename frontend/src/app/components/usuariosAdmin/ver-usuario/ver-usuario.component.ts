@@ -2,8 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
-//import { EditableColumn, TableModule } from 'primeng/table';
-//import { ButtonModule } from 'primeng/button';
+import { EditableColumn, TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { ɵBrowserAnimationBuilder } from '@angular/animations';
 import { CommonModule } from '@angular/common';
@@ -11,11 +11,11 @@ import { CrearUsuarioComponent } from '../crear-usuario/crear-usuario.component'
 import { EditarUsuarioComponent } from '../editar-usuario/editar-usuario.component';
 
 import { Usuario } from '../../../interface/usuario';
-import { UsuarioService } from '../../service/usuario.service';
-/*import { DialogModule } from 'primeng/dialog';
+import { UsuarioService } from '../../../service/usuario.service';
+import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { DialogService } from 'primeng/dynamicdialog';
-import { MessageService } from 'primeng/api';*/
+import { MessageService } from 'primeng/api';
 
 
 @Component({
@@ -24,10 +24,10 @@ import { MessageService } from 'primeng/api';*/
   imports: [
     HttpClientModule,
     RouterLink,
-    /*TableModule,
+    TableModule,
     ButtonModule,
     DialogModule,
-    InputTextModule,*/
+    InputTextModule,
     CrearUsuarioComponent,
     EditarUsuarioComponent,
     CommonModule
@@ -35,10 +35,10 @@ import { MessageService } from 'primeng/api';*/
   templateUrl: './ver-usuario.component.html',
   styleUrl: './ver-usuario.component.css',
   providers:[
-    //DialogService,
+    DialogService,
     UsuarioService,
     BrowserModule,
-    //MessageService
+    MessageService
   ]
 })
 export class VerUsuarioComponent {

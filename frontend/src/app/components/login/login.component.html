@@ -1,0 +1,27 @@
+<div class="card flex justify-content-center">
+    <p-button [raised]="true" [outlined]="true" (click)="showDialog()" icon="pi pi-user" label="Login"></p-button>
+        
+        <p-dialog header="Início de sesión" [(visible)]="visible" [modal]="true" 
+        [draggable]="false" [resizable]="false" (onHide)="cerrar()">
+        
+        
+        <div class="card flex justify-content-center" class="custom-dialog">
+            <div class="flex flex-row gap-4">
+                <div class="flex flex-column">
+                    <label for="username1">Correo</label>
+                    <input [(ngModel)]="correo" >
+                    <small id="username-help1">Introduce el Correo de usuario</small>
+                </div>
+            <div class="flex flex-column">
+                <label for="username1">Contraseña</label>
+             <input type="contrasena" [(ngModel)]="contrasena" >
+                <small id="username-help1">Introduce la contraseña de usuario</small>
+            </div>
+    
+        </div>
+        <div style="margin-top: 20px; display: flex; gap: 10px;" >
+            <p-button [raised]="true" [outlined]="true" (click)="login()">Login</p-button>
+        </div>
+    </div>
+</p-dialog>
+</div>
