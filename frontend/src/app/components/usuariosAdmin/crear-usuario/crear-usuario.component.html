@@ -1,0 +1,54 @@
+<p-toast></p-toast><!--Queda lo de los slider-->
+
+<div class="card flex justify-content-center">
+    @if (tipo==0) {
+        <p-button [raised]="true" [outlined]="true" (click)="showDialog()" [raised]="true" label="Registrar" icon="pi pi-pencil"></p-button>
+    }
+    <p-dialog header="Registrarse" [(visible)]="visible" [modal]="true" 
+    [draggable]="false" (onHide)="cerrar()" [resizable]="false" [style]="{ width: '50rem' }" 
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+    <div class="card flex justify-content-center" class="custom-dialog">
+        <div class="flex flex-row gap-4"> 
+        
+            <div class="flex flex-column">
+                <label for="nombre">Nombre</label>
+                <input pInputText id="nombre" aria-describedby="eventname-help1" [(ngModel)]="usuarios.nombre"/>
+            </div>
+
+            <div class="flex flex-column">
+                <label for="correo">Correo</label>
+                <input pInputText id="correo" aria-describedby="correo-help" [(ngModel)]="usuarios.correo"/>
+            </div>
+
+            <div class="flex flex-column">
+                <label for="fecha">Fecha de Nacimiento</label>
+                <input type="date" id="fecha" placeholder="DD/MM/YYYY" aria-describedby="eventname-help2"  [(ngModel)]="usuarios.fechaNacimiento"/>
+            </div>
+
+            <div class="flex flex-column">
+                <label for="contrasena">Contraseña</label>
+                <input pInputText id="contrasena" aria-describedby="contrasena" [(ngModel)]="usuarios.contrasena"/>
+            </div>
+
+            <div class="flex flex-column">
+                <label for="genero">Genero</label>
+                <input pInputText id="genero" aria-describedby="genero" [(ngModel)]="usuarios.genero"/>
+            </div>
+
+            <div class="flex flex-column"><!--Esto hay que cambiarlo para que sea con un boton de subir fotos-->
+                <label for="foto">Foto</label>
+                <input pInputText id="foto" aria-describedby="foto" [(ngModel)]="usuarios.foto"/>
+                <!--<label for="fotoCartel">Foto de cartel</label><br><br>
+                    <input #archivo type="file" id="archivo" class="form-control" accept="image/*" (change)="uplodadFoto($event)" ><br>
+                    @if(fotoPreview){
+                        <p-button (onClick)="limpiarFoto(archivo)">Limpiar</p-button>
+                    }
+                <small id="fotoCartel">Sube la foto del cartel del nuevo evento</small><br>-->
+            </div>
+        </div>
+        <div style="margin-top: 20px;" >
+            <app-confirm tipo="Crear" icono="plus" mensaje="¿Deseas crear este evento?" color="success" (confirmacion)="crear($event)"></app-confirm>
+        </div>
+    </div>
+    </p-dialog>
+</div>
