@@ -1,5 +1,5 @@
 export const environment = {
-    baseUrl:'http://localhost:9090/api',
+    baseUrl:'http://localhost:8000',
     urlSocket:'http://localhost:8090',
     urlUsuario:'/usuario',
     urlRol:'/rol',

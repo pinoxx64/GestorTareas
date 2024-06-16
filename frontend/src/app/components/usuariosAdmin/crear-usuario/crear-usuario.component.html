@@ -21,30 +21,10 @@
             </div>
 
             <div class="flex flex-column">
-                <label for="fecha">Fecha de Nacimiento</label>
-                <input type="date" id="fecha" placeholder="DD/MM/YYYY" aria-describedby="eventname-help2"  [(ngModel)]="usuarios.fechaNacimiento"/>
-            </div>
-
-            <div class="flex flex-column">
                 <label for="contrasena">Contraseña</label>
                 <input pInputText id="contrasena" aria-describedby="contrasena" [(ngModel)]="usuarios.contrasena"/>
             </div>
 
-            <div class="flex flex-column">
-                <label for="genero">Genero</label>
-                <input pInputText id="genero" aria-describedby="genero" [(ngModel)]="usuarios.genero"/>
-            </div>
-
-            <div class="flex flex-column"><!--Esto hay que cambiarlo para que sea con un boton de subir fotos-->
-                <label for="foto">Foto</label>
-                <input pInputText id="foto" aria-describedby="foto" [(ngModel)]="usuarios.foto"/>
-                <!--<label for="fotoCartel">Foto de cartel</label><br><br>
-                    <input #archivo type="file" id="archivo" class="form-control" accept="image/*" (change)="uplodadFoto($event)" ><br>
-                    @if(fotoPreview){
-                        <p-button (onClick)="limpiarFoto(archivo)">Limpiar</p-button>
-                    }
-                <small id="fotoCartel">Sube la foto del cartel del nuevo evento</small><br>-->
-            </div>
         </div>
         <div style="margin-top: 20px;" >
             <app-confirm tipo="Crear" icono="plus" mensaje="¿Deseas crear este evento?" color="success" (confirmacion)="crear($event)"></app-confirm>

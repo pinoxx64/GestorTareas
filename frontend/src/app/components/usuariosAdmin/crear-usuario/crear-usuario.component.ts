@@ -7,13 +7,10 @@ import { SliderModule } from 'primeng/slider';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
 import { MessageService } from 'primeng/api';
-import { ConfirmComponent } from '../confirm/confirm.component';
+import { ConfirmComponent } from '../../confirm/confirm.component';
 
-import { Usuario } from '../../interface/usuario';
-import { UsuarioService } from '../../service/usuario.service';
-import { Preferencia } from '../../interface/preferencia';
-import { PreferenciaService } from '../../service/preferencia.service';
-import { getLocaleDateFormat } from '@angular/common';
+import { Usuario } from '../../../interface/usuario';
+import { UsuarioService } from '../../../service/usuario.service';
 
 @Component({
   selector: 'app-crear-usuario',
@@ -38,37 +35,23 @@ import { getLocaleDateFormat } from '@angular/common';
 export class CrearUsuarioComponent {
   constructor(
     public messageService: MessageService,
-    private servicioUsuario: UsuarioService,
-    private servicioPreferencia: PreferenciaService
+    private servicioUsuario: UsuarioService
   ){}
   usuarios: Usuario = { 
     id: 0, 
     nombre: '', 
     correo: '', 
-    fechaNacimiento: new Date(2001, 0, 1),
-    contrasena: '',
-    genero: '',
-    foto: ''
+    contrasena: ''
   }
 
 
   @Input() usuario?: any
   @Input() tipo=0
   @Input() visible: boolean = false;
-  //maxDate = new Date().toLocaleDateString();
 
   @Output() cerrarModal = new EventEmitter<void>();
 
-  numArte: number = 50;
-  numDeporte: number = 50;
-  numPolitico: number = 50;
-
-  //idUsu!: number
-
   formGroup: FormGroup | undefined;
-  
-  formularioFoto: FormData | null = null
-  fotoPreview: string | null = null
 
   //--------------------------------------------------------------------------------------
 
@@ -86,23 +69,6 @@ export class CrearUsuarioComponent {
       });
   }
 
-  uplodadFoto(event: any) {
-    const file = event.target.files[0]
-    if (file) {
-      this.formularioFoto = new FormData()
-      this.formularioFoto.append('archivo', file)
-      this.fotoPreview = URL.createObjectURL(file);
-      
-    } else {
-      this.formularioFoto = null
-    }
-  }
-  limpiarFoto(archivo: any) {
-    archivo.value = null
-    this.formularioFoto = null
-    this.fotoPreview = null
-  }
-
   crear(b:Boolean){
     if (b){
         this.messageService.add({ severity: 'info', summary:'Crear usuario', detail:'En curso', life:3000});
@@ -115,10 +81,7 @@ export class CrearUsuarioComponent {
               this.usuarios.id = data.id
               this.usuarios.nombre= ''
               this.usuarios.correo= ''
-              this.usuarios.fechaNacimiento= new Date(2001, 0, 1)
               this.usuarios.contrasena= ''
-              this.usuarios.genero= ''
-              this.usuarios.foto= '' 
               window.location.reload()
             });
           },
