@@ -7,14 +7,14 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
 import { InputSwitchModule } from 'primeng/inputswitch';
-import { ConfirmComponent } from '../confirm/confirm.component';
+import { ConfirmComponent } from '../../confirm/confirm.component';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { Usuario } from '../../interface/usuario';
-import { UsuarioService } from '../../service/usuario.service';
+import { Usuario } from '../../../interface/usuario';
+import { UsuarioService } from '../../../service/usuario.service';
 import { CalendarModule } from 'primeng/calendar';
 
 
@@ -46,11 +46,8 @@ export class EditarUsuarioComponent {
   usuarios: Usuario = { 
     id: 0, 
     nombre: '', 
-    correo: '', 
-    fechaNacimiento: new Date(2001, 1, 1),
-    contrasena: '',
-    genero: '',
-    foto: ''
+    correo: '',
+    contrasena: ''
   }
   @Input() usuario?: any
   @Input() id!: number
@@ -100,10 +97,7 @@ export class EditarUsuarioComponent {
         this.visible=true
         this.usuarios.nombre = usu.nombre
         this.usuarios.correo = usu.correo
-        this.usuarios.fechaNacimiento = usu.fechaNacimiento
         this.usuarios.contrasena = usu.contrasena
-        this.usuarios.genero = usu.genero
-        this.usuarios.foto = usu.foto
       },
       error: (e) => {
       

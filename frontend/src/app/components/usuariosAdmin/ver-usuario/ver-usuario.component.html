@@ -14,9 +14,6 @@
                 <th style="width:10%"><app-crear-usuario></app-crear-usuario></th>
                 <th style="width:12%">Nombre</th>
                 <th style="width:12%">Correo</th>
-                <th style="width:12%">Fecha de Nacimiento</th>
-                <th style="width:12%">Genero</th>
-                <th style="width:12%">Foto</th>
             </tr>
         </ng-template> 
         <ng-template pTemplate="body" let-usuarios>
@@ -24,9 +21,6 @@
                 <td><app-editar-usuario [usuario]="listaUsers" [id]="usuarios.id"></app-editar-usuario></td>
                 <td>{{usuarios.nombre}}</td>
                 <td>{{usuarios.correo}}</td>
-                <td>{{usuarios.fechaNacimiento}}</td>
-                <td>{{usuarios.genero}}</td>
-                <td><img src="../../../assets/{{usuarios.foto}}"></td>
             </tr>
         </ng-template>
         <ng-template pTemplate="paginatorleft">
