@@ -21,6 +21,6 @@ class tareas extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(usuario::class);
     }
 }

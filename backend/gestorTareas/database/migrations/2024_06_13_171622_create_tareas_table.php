@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('horas_actuales')->nullable();
             $table->integer('porcentaje')->default(0);
             $table->boolean('completo')->default(false);
-            $table->foreignId('id_usuario')->nullable()->constrained();
+            $table->foreignId('id_usuario')->nullable()->constrained('usuario')->onDelete('set null');
             $table->timestamps();
         });
     }
