@@ -1,0 +1,39 @@
+<div style="margin-top: 40px;" class="card">
+    <p-table
+        [value]="listaUsers"
+        [paginator]="true"
+        [rows]="5"
+        [showCurrentPageReport]="true"
+        [tableStyle]="{ 'min-width': '50rem' ,'max-width':'80rem','margin':'auto'}"
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} usuarios"
+        [rowsPerPageOptions]="[5, 10, 20]"
+    >
+    
+        <ng-template pTemplate="header">
+            <tr class="header-glass" style="border: none;">
+                <th style="width:10%"><app-crear-usuario></app-crear-usuario></th>
+                <th style="width:12%">Nombre</th>
+                <th style="width:12%">Correo</th>
+                <th style="width:12%">Fecha de Nacimiento</th>
+                <th style="width:12%">Genero</th>
+                <th style="width:12%">Foto</th>
+            </tr>
+        </ng-template> 
+        <ng-template pTemplate="body" let-usuarios>
+            <tr class="glass">
+                <td><app-editar-usuario [usuario]="listaUsers" [id]="usuarios.id"></app-editar-usuario></td>
+                <td>{{usuarios.nombre}}</td>
+                <td>{{usuarios.correo}}</td>
+                <td>{{usuarios.fechaNacimiento}}</td>
+                <td>{{usuarios.genero}}</td>
+                <td><img src="../../../assets/{{usuarios.foto}}"></td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-table>
+</div>
