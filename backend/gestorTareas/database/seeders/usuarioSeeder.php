@@ -18,8 +18,8 @@ class usuarioSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        $adminRol = rol::where('name', 'Administrador')->first();
-        $programadorRol = rol::where('name', 'Programador')->first();
+        $adminRol = rol::where('nombre', 'Administrador')->first();
+        $programadorRol = rol::where('nombre', 'Programador')->first();
 
         usuario::factory()
             ->count(10)
