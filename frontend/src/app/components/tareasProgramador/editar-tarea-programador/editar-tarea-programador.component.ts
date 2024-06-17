@@ -14,7 +14,7 @@ import { Tarea } from '../../../interface/tarea';
 import { tareaService } from '../../../service/tarea.service';
 
 @Component({
-  selector: 'app-editar-tarea',
+  selector: 'app-editar-tarea-programador',
   standalone: true,
   imports: [
     FormsModule,
@@ -25,11 +25,11 @@ import { tareaService } from '../../../service/tarea.service';
     InputSwitchModule,
     ConfirmComponent
   ],
-  templateUrl: './editar-tarea.component.html',
-  styleUrl: './editar-tarea.component.css',
+  templateUrl: './editar-tarea-programador.component.html',
+  styleUrl: './editar-tarea-programador.component.css',
   providers: [DialogService, MessageService, tareaService]
 })
-export class EditarTareaComponent {
+export class EditarTareaProgramadorComponent { 
   constructor(
     public messageService: MessageService,
     private servicioTarea: tareaService

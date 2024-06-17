@@ -7,32 +7,32 @@ import { ButtonModule } from 'primeng/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
-import { EditarTareaComponent } from '../editar-tarea/editar-tarea.component';
+import { EditarTareaProgramadorComponent } from '../editar-tarea-programador/editar-tarea-programador.component'; 
 import { Tarea } from '../../../interface/tarea';
 import { tareaService } from '../../../service/tarea.service';
 
 @Component({
-  selector: 'app-tarea',
+  selector: 'app-tarea-programador',
   standalone: true,
   imports: [
     HttpClientModule,
     RouterLink,
     TableModule,
     ButtonModule,
-    EditarTareaComponent
+    EditarTareaProgramadorComponent
   ],
-  templateUrl: './tarea.component.html',
-  styleUrl: './tarea.component.css',
+  templateUrl: './tarea-programador.component.html',
+  styleUrl: './tarea-programador.component.css',
   providers: [
     tareaService
   ]
 })
-export class TareaComponent {
+export class TareaProgramadorComponent {
   constructor(
     private servicioTarea: tareaService
   ){}
   subscriptionTareas: Subscription=new Subscription;
-  listaTarea:Array<Tarea>=[]
+  listaTarea:Array<Tarea>=[] 
   @Input() admin=true
 
   ngOnInit(): void{
