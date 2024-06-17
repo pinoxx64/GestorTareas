@@ -1,15 +1,20 @@
 <?php
 
+//use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\TareaController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('usuario', [UsuarioController::class, 'usuariosGet']);
-Route::post('usuario', [UsuarioController::class, 'usuarioPost']);
+//Route::post('login', [AuthController::class, 'login']);
+
 Route::get('usuario/{id}', [UsuarioController::class, 'usuarioGet']);
-Route::put('usuario/{id}', [UsuarioController::class, 'usuarioPut']);
-Route::delete('usuario/{id}', [UsuarioController::class, 'usuarioDelete']);
+//Route::middleware(['auth:sanctum', 'verificarAdministrador'])->group(function() {
+    Route::get('usuario', [UsuarioController::class, 'usuariosGet']);
+    Route::post('usuario', [UsuarioController::class, 'usuarioPost']);
+    Route::put('usuario/{id}', [UsuarioController::class, 'usuarioPut']);
+    Route::delete('usuario/{id}', [UsuarioController::class, 'usuarioDelete']);
+//});
 
 Route::get('tarea', [TareaController::class, 'tareasGet']);
 Route::post('tarea', [TareaController::class, 'tareaPost']);
