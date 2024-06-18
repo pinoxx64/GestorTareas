@@ -1,0 +1,19 @@
+header{
+    background-color: brown;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.botones_header{
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2%;
+}
