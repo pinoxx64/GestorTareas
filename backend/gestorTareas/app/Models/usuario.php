@@ -28,11 +28,19 @@ class usuario extends Model
     public function rol()
     {
         return $this->belongsToMany(Rol::class);
-        return $this->belongsToMany(Rol::class)->using(UsuarioRol::class);
+        return $this->belongsToMany(Rol::class)->using(usuarioRol::class);
     }
 
     public function tareas()
     {
         return $this->hasMany(Tareas::class);
+    }
+
+    public function getEficiencia()
+    {
+        $totalTareas = $this->tareas()->count();
+        $tareasCompletadas = $this->tareas()->where('completo', true)->count();
+
+        return $totalTareas > 0 ? ($tareasCompletadas / $totalTareas) * 100 : 0;
     }
 }
