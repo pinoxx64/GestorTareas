@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\RolController;
+/*use App\Http\Controllers\RolController;
 use App\Http\Controllers\TareaController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
@@ -22,4 +22,4 @@ Route::post('rol', [RolController::class, 'rolPost']);
 Route::get('rol/{id}', [RolController::class, 'rolGet']);
 Route::put('rol/{id}', [RolController::class, 'rolPut']);
 Route::delete('rol/{id}', [RolController::class, 'rolDelete']);
-
+*/

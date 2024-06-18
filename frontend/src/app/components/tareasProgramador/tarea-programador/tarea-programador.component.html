@@ -6,7 +6,7 @@
         [showCurrentPageReport]="true"
         [tableStyle]="{ 'min-width': '50rem' ,'max-width':'80rem','margin':'auto'}"
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} tareas"
-        [rowsPerPageOptions]="[5, 10, 20]"
+        [rowsPerPageOptions]="[5, 10, 20]" 
     >
     
         <ng-template pTemplate="header">
@@ -23,7 +23,7 @@
         </ng-template> 
         <ng-template pTemplate="body" let-tareas>
             <tr class="glass">
-                <td><app-editar-tarea [tarea]="listaTarea" [id]="tareas.id"></app-editar-tarea></td>
+                <td><app-editar-tarea-programador [tarea]="listaTarea" [id]="tareas.id"></app-editar-tarea-programador></td>
                 <td>{{tareas.descripcion}}</td>
                 <td>{{tareas.dificultad}}</td>
                 <td>{{tareas.horas_actuales}}</td>

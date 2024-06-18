@@ -54,7 +54,7 @@ export class LoginComponent {
       sessionStorage.setItem('token',data.token)
       this.servicioAuth.loginOn()
       this.visible=false
-      window.location.href="../"
+      window.location.href="../tareaProgramador"
     },
     error:(err)=>{
       this.logged.emit(false)
